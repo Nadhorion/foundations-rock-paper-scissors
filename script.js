@@ -6,13 +6,10 @@ function getComputerChoice() {
 
     if (randomNumber <= 33) {
         computerChoice = "rock";
-
     } else if (randomNumber <= 66) {
         computerChoice = "paper";
-
     } else {
         computerChoice = "scissors";
-
     }
 
     console.log(computerChoice + randomNumber)
@@ -25,7 +22,6 @@ function getHumanChoice() {
     if (humanChoice === "rock"
         || humanChoice === "paper"
         || humanChoice === "scissors"){
-        
         console.log(humanChoice);
         return humanChoice;
     }
@@ -38,26 +34,18 @@ function playGame() {
     let computerScore = 0;
     let humanScore = 0;
 
-    // const humanChoice = getHumanChoice();
-    // const computerChoice = getComputerChoice();
-
     function playRound(humanChoice, computerChoice) {
-
         let isWinner;
 
         if ( humanChoice === computerChoice ) {
             console.log("Its a tie!");
             return;
-
         } else if (humanChoice === "rock") {
             isWinner = (computerChoice === "scissors") ? true : false;
-
         } else if (humanChoice === "paper") {
             isWinner = (computerChoice === "rock") ? true : false;
-
         } else if (humanChoice === "scissors") {
             isWinner = (computerChoice === "paper") ? true : false;
-
         }
 
         if (isWinner) {
@@ -68,25 +56,14 @@ function playGame() {
             computerScore++;
         }
         return;
-
     }   
 
-    // playRound("rock", "rock");
-    // playRound("paper", "rock");
-    // playRound("scissors", "rock");
     playRound(getHumanChoice(), getComputerChoice());
     playRound(getHumanChoice(), getComputerChoice());
     playRound(getHumanChoice(), getComputerChoice());
     playRound(getHumanChoice(), getComputerChoice());
     playRound(getHumanChoice(), getComputerChoice());
-
 
 }
 
-// getComputerChoice();
-//getHumanChoice();
-// playRound("rock", "paper");
-// playRound("paper", "paper");
-// playRound("paper", "rock");
-// playRound("scissors", "paper");
 playGame();
