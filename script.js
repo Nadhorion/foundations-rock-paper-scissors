@@ -1,4 +1,5 @@
-console.log("hello darkness");
+let computerScore = 0;
+let humanScore = 0;
 
 function getComputerChoice() {
     const randomNumber = Math.floor( Math.random() * 100 );
@@ -19,8 +20,6 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-getComputerChoice();
-
 function getHumanChoice() {
     const humanChoice = (prompt("Pick either Rock, Paper, or Scissors:")).toLowerCase();
 
@@ -35,4 +34,5 @@ function getHumanChoice() {
     return;
 }
 
+getComputerChoice();
 getHumanChoice()
