@@ -16,27 +16,16 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-// function getHumanChoice() {
-//     const humanChoice = (prompt("Pick either Rock, Paper, or Scissors:")).toLowerCase();
-
-//     if (humanChoice === "rock"
-//         || humanChoice === "paper"
-//         || humanChoice === "scissors"){
-//         console.log(humanChoice);
-//         return humanChoice;
-//     }
-
-//     return;
-// }
-
 let humanScore = 0;
 let computerScore = 0;
+const resultsText = document.querySelector('#results');
+const scoresDiv = document.querySelector('#scores');
 
 function playRound(humanChoice, computerChoice) {
     let isWinner;
 
     if ( humanChoice === computerChoice ) {
-        console.log("Its a tie!");
+        resultsText.textContent = "Its a tie!";
         return;
     } else if (humanChoice === "rock") {
         isWinner = (computerChoice === "scissors") ? true : false;
@@ -47,21 +36,24 @@ function playRound(humanChoice, computerChoice) {
     }
 
     if (isWinner) {
-        console.log("You won, " + humanChoice + " beats " + computerChoice + ".")
+        resultsText.textContent = 
+            "You won, " + humanChoice + " beats " + computerChoice + ".";
         humanScore++;
     } else {
-        console.log("You lost, " +  computerChoice + " beats " + humanChoice + ".")
+        resultsText.textContent = 
+            "You lost, " +  computerChoice + " beats " + humanChoice + ".";
         computerScore++;
     }
     
+    scoresDiv.textContent = 
+    "Human Score: " + humanScore + ", Computer Score: " + computerScore;
+
     if (humanScore === 5) {
-        console.log('You won the game!');
+        resultsText.textContent = 'You won the game!';
         humanScore = 0;
         computerScore = 0;
     } else if (computerScore === 5) {
-        console.log(`You lost the game D: 
-                    Human Score: ${humanScore} 
-                    Computer Score: ${computerScore}`);
+        resultsText.textContent = 'You lost the game D:';
         humanScore = 0;
         computerScore = 0;
     }
@@ -75,5 +67,4 @@ function buttonClick(event) {
 }
 
 const choices = document.querySelectorAll('button');
-// console.log(choices);
 choices.forEach( choice => choice.addEventListener('click', buttonClick));
